@@ -7,17 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberMatch</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
 </head>
 
-<body class="muh-page" background="muhammad-background.png">
+<body class="muh-page" background="{{ url_for('static', filename='muhammad-background.png') }}">
 
     <div id="top-of-page"></div>
 
     <header id="muhammad-header" class="page-header">
         <span class="left-item">
             <a href="#top-of-page">
-                <img class="logo" src="CM Mini Logo.png" alt="CyberMatch logo">
+                <img class="logo" src="{{ url_for('static', filename='CM Mini Logo.png') }}" alt="CyberMatch logo">
             </a>
             <h1>CyberMatch</h1>
         </span>
@@ -29,7 +30,7 @@
         <span class="right-item">
             <h1>Back to Home</h1>
             <a href="index.html">
-                <img class="logo" id="logo-redirect" src="no.png">
+                <img class="logo" id="logo-redirect" src="{{ url_for('static', filename='no.png') }}">
             </a>
         </span>
     </header>
@@ -84,7 +85,7 @@
 
         <div class="section">
 
-            <img src="CM Gameplay.png" width="100%" alt="CyberMatch gameplay screen" class="gameplayscreen">
+            <img src="{{ url_for('static', filename='CM Gameplay.png') }}" width="100%" alt="CyberMatch gameplay screen" class="gameplayscreen">
 
             <p>
                 CyberMatch combines memory skills with cybersecurity learning. With a
@@ -143,7 +144,7 @@
                 <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to top ⬆</button>
             </div>
             <div>
-                <img src="mascot.png" class="mascot" alt="Gamedev Club Gamedevs Mascot" width=200px onclick="alert('Meow')">
+                <img src="{{ url_for('static', filename='mascot.png') }}" class="mascot" alt="Gamedev Club Gamedevs Mascot" width="200px" onclick="alert('Meow')">
             </div>
             <div>
                 <p><b>Gamedev Club Gamedevs</b></p>
