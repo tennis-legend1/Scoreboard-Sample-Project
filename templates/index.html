@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main>
+    <h1>Submit Your Time</h1>
+    <form method="POST">
+        Name: <input type="text" name="first_name" placeholder="First Name" required> <input type="text" name="last_name" placeholder="Last Name" required>
+        Time: <input type="number" name="score" placeholder="Time (seconds)" required> seconds
+        <input type="submit" value="Submit" style="cursor: pointer;">
+    </form>
+
+    <h2>Leaderboard</h2>
+        {% for name, score in entries %}
+            <li>{{ name }}: {{ score }}</li>
+        {% endfor %}
+    </main>
+    <footer class="site-footer">
+        <section class="columns">
+            <div>
+                <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to top ⬆</button>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='mascot.png') }}" alt="Gamedev Club Gamedevs Mascot" width="200px" class="mascot" onclick="alert('Meow')">
+            </div>
+            <div>
+                <p><b>Gamedev Club Gamedevs</b></p>
+                <h6>You Think It. We Built It!</h6>
+            </div>
+        </section>
+        <br><br>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="Checkout.html">Checkout</a>
+            <a href="Albarr-Main.html">QFAP</a>
+            <a href="Muhammad-Main.html">CyberMatch</a>
+            <a href="Aarav-Main.html">Data Deal</a>
+        </nav>
+        <br>
+        <hr color="#ff00c4">
+        <br>
+        <h5>© 2026 Gamedev Club Gamedevs. No Rights Reserved</h5>
+    </footer>
+
+</body>
+    
+</html>
