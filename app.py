@@ -25,7 +25,7 @@ def init_db():
         ''')
 
 #This specifies that the following function will run whenever there's any actions taken on the web page
-@app.route('/Leaderboard', methods=['GET', 'POST'])
+@app.route('/leaderboard', methods=['GET', 'POST'])
 
 # This function handles both displaying the leaderboard and submitting scores
 def leaderboard():
@@ -57,7 +57,7 @@ def leaderboard():
     return render_template('index.html', entries=entries)
 
 # Allow the main game page to be access to and from the leaderboard page
-@app.route('/CyberMatch', methods=['GET', 'POST'])
+@app.route('/cybermatch', methods=['GET', 'POST'])
 def index ():
     return render_template('Muhammad-Main.html')
 
