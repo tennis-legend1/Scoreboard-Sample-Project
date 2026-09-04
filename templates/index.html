@@ -18,9 +18,10 @@
     </form>
 
     <h2>Leaderboard</h2>
-        {% for name, score in entries %}
-            <li>{{ name }}: {{ score }}</li>
+        {% for position, name, score in entries %}
+        <li>#{{ position }} - {{ name }}: {{ score }} seconds</li>
         {% endfor %}
+
     </main>
     <footer class="site-footer">
         <section class="columns">

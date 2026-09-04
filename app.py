@@ -44,17 +44,22 @@ def leaderboard():
             conn.execute('INSERT INTO scores (name, score) VALUES (?, ?)', (full_name, score))
         
         # Redirect the user back to the main page after submitting
-        return redirect('/')
+        return redirect('/leaderboard')
     
     # If it's a normal page load (GET request), show the leaderboard
     with sqlite3.connect(DB_NAME) as conn:
         cur = conn.cursor()
         # Get all name and score entries from the database (sorted by score in descending order)
-        cur.execute('SELECT name, score FROM scores ORDER BY score DESC')
+        cur.execute('SELECT name, score FROM scores ORDER BY score ASC')
         entries = cur.fetchall()
+
+    # Add a rank to the entries
+    ranked_entries = []
+    for position, (name, score) in enumerate(entries, start=1):
+        ranked_entries.append((position, name, score))
     
     # Send the HTML page with the most recent leaderboard
-    return render_template('index.html', entries=entries)
+    return render_template('index.html', entries=ranked_entries)
 
 # Allow the main game page to be access to and from the leaderboard page
 @app.route('/cybermatch', methods=['GET', 'POST'])
