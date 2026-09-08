@@ -13,14 +13,38 @@
     <h1>Submit Your Time</h1>
     <form method="POST">
         Name: <input type="text" name="first_name" placeholder="First Name" required> <input type="text" name="last_name" placeholder="Last Name" required>
-        Time: <input type="number" name="score" placeholder="Time (seconds)" required> seconds
+        Time: <input type="number" name="score" placeholder="Time (seconds)" min="0" step="1" required> seconds
         <input type="submit" value="Submit" style="cursor: pointer;">
     </form>
 
     <h2>Leaderboard</h2>
-        {% for position, name, score in entries %}
-        <li>#{{ position }} - {{ name }}: {{ score }} seconds</li>
-        {% endfor %}
+        <form method="GET" action="/leaderboard" style="margin-bottom: 20px; text-align: left;">
+        <label for="sort_by">Sort by: </label>
+        <select name="sort_by" id="sort_by" onchange="this.form.submit()" style="padding: 5px; font-size: 16px; cursor: pointer;">
+            <option value="quickest" {% if current_sort == 'quickest' %}selected{% endif %}>Quickest to Slowest</option>
+            <option value="slowest" {% if current_sort == 'slowest' %}selected{% endif %}>Slowest to Quickest</option>
+            <option value="fn_az" {% if current_sort == 'fn_az' %}selected{% endif %}>First Name (A-Z)</option>
+            <option value="fn_za" {% if current_sort == 'fn_za' %}selected{% endif %}>First Name (Z-A)</option>
+            <option value="ln_az" {% if current_sort == 'ln_az' %}selected{% endif %}>Last Name (A-Z)</option>
+            <option value="ln_za" {% if current_sort == 'ln_za' %}selected{% endif %}>Last Name (Z-A)</option>
+        </select>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for first_name, last_name, score in entries %} 
+            <tr>
+                <td>{{ first_name }} {{ last_name }}</td>
+                <td>{{ score }} seconds</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     </main>
     <footer class="site-footer">

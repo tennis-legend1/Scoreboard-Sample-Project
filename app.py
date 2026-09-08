@@ -14,17 +14,19 @@ def init_db():
     with sqlite3.connect(DB_NAME) as conn:
         # Create the 'scores' table with three columns:
         # - id: an auto-incrementing number (primary key)
-        # - name: the player's name
+        # - first_name: the player's firstname
+        # - last_name: the player's lastname
         # - score: the player's score
         conn.execute('''
             CREATE TABLE IF NOT EXISTS scores (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
+                first_name TEXT NOT NULL,
+                last_name TEXT NOT NULL,
                 score INTEGER NOT NULL
             )
         ''')
 
-#This specifies that the following function will run whenever there's any actions taken on the web page
+# This specifies that the following function will run whenever there's any actions taken on the web page
 @app.route('/leaderboard', methods=['GET', 'POST'])
 
 # This function handles both displaying the leaderboard and submitting scores
@@ -36,15 +38,42 @@ def leaderboard():
         last_name = request.form['last_name']
         score = request.form['score']
 
-        # Combine them into one string with a space in between
-        full_name = f"{first_name} {last_name}".strip()
-        
-        # Save the new score into the database
-        with sqlite3.connect(DB_NAME) as conn:
-            conn.execute('INSERT INTO scores (name, score) VALUES (?, ?)', (full_name, score))
+        try:
+            score = int(score)
+            if score >= 0:
+                with sqlite3.connect(DB_NAME) as conn:
+                    # Save them cleanly as two separate fields
+                    conn.execute('INSERT INTO scores (first_name, last_name, score) VALUES (?, ?, ?)', (first_name, last_name, score))
+        except ValueError:
+            pass
         
         # Redirect the user back to the main page after submitting
         return redirect('/leaderboard')
+
+    # Defaults sorting selection to quickest time
+    sort_by = request.args.get('sort_by', 'quickest')
+    
+    # Sorting options
+    if sort_by == 'slowest':
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY score DESC'
+    elif sort_by == 'fn_az':
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY first_name COLLATE NOCASE ASC'
+    elif sort_by == 'fn_za':
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY first_name COLLATE NOCASE DESC'
+    elif sort_by == 'ln_az':
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY last_name COLLATE NOCASE ASC'
+    elif sort_by == 'ln_za':
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY last_name COLLATE NOCASE DESC'
+    else:  
+        query = 'SELECT first_name, last_name, score FROM scores ORDER BY score COLLATE NOCASE ASC'
+
+    with sqlite3.connect(DB_NAME) as conn:
+        cur = conn.cursor()
+        cur.execute(query)
+        entries = cur.fetchall()
+    
+    return render_template('index.html', entries=entries, current_sort=sort_by)
+
     
     # If it's a normal page load (GET request), show the leaderboard
     with sqlite3.connect(DB_NAME) as conn:
@@ -52,11 +81,6 @@ def leaderboard():
         # Get all name and score entries from the database (sorted by score in descending order)
         cur.execute('SELECT name, score FROM scores ORDER BY score ASC')
         entries = cur.fetchall()
-
-    # Add a rank to the entries
-    ranked_entries = []
-    for position, (name, score) in enumerate(entries, start=1):
-        ranked_entries.append((position, name, score))
     
     # Send the HTML page with the most recent leaderboard
     return render_template('index.html', entries=ranked_entries)
@@ -66,7 +90,7 @@ def leaderboard():
 def index ():
     return render_template('Muhammad-Main.html')
 
-#----- Mainline program: This code executes when we run this file.-----#
+#----- Mainline program: This code executes when we run this file.-----
 
 init_db()  # Set up the database before starting the web app
 

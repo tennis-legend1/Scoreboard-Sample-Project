@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="icon" href="CM Mini Logo.png">
+<link rel="icon" href="{{ url_for('static', filename='CM Mini Logo.png') }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberMatch</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 </head>
 
@@ -137,7 +137,6 @@
         </div>
         <br>
     </div>
-    <hr color="#ff00c4">
     <footer class="site-footer">
         <section class="columns">
             <div>
