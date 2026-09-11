@@ -2,23 +2,63 @@
 <html>
 <head>
 
-<a href="/cybermatch" class="my-button">Back to CyberMatch Page</a>
-
-
-    <title>Leaderboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Leaderboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <main>
-    <h1>Submit Your Time</h1>
-    <form method="POST">
-        Name: <input type="text" name="first_name" placeholder="First Name" required> <input type="text" name="last_name" placeholder="Last Name" required>
-        Time: <input type="number" name="score" placeholder="Time (seconds)" min="0" step="1" required> seconds
-        <input type="submit" value="Submit" style="cursor: pointer;">
-    </form>
+<body class="leaderboard-page-body" background="{{ url_for('static', filename='muhammad-background.png') }}">
+    <div id="top-of-page"></div>
 
-    <h2>Leaderboard</h2>
-        <form method="GET" action="/leaderboard" style="margin-bottom: 20px; text-align: left;">
+<header id="muhammad-header" class="page-header">
+    <span class="left-item">
+        <a href="#top-of-page">
+            <img class="logo" src="{{ url_for('static', filename='CM Mini Logo.png') }}" alt="CyberMatch logo">
+        </a>
+        <h1 style="color: #10f26a;">CyberMatch</h1>
+    </span>
+    <nav id="contents" class="center-item" aria-label="Group project navigation">
+        <a class="animated-hyperlink hyperlink muhammad" style="cursor: pointer;">QFAP</a>
+        <a class="animated-hyperlink hyperlink muhammad" href="/cybermatch">CM</a>
+        <a class="animated-hyperlink hyperlink muhammad" style="cursor: pointer;">DD</a>
+    </nav>
+    <span class="right-item">
+        <h1>Back to Home</h1>
+        <a href="index.html">
+            <img class="logo" id="logo-redirect" src="{{ url_for('static', filename='no.png') }}">
+        </a>
+    </span>
+</header>
+<br>
+
+<div class="leaderboard-main-wrapper">
+    <main>
+
+    <h1 class="leaderboard-title-heading">Submit Your Time</h1>
+    <div class="leaderboard-glowing-section">
+
+<form method="POST">
+    <div>
+        Name: 
+        <input type="text" name="first_name" placeholder="First Name" onkeydown="if(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(event.key)) event.preventDefault();" required> 
+        <input type="text" name="last_name" placeholder="Last Name" onkeydown="if([' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(event.key)) event.preventDefault();" required>
+    </div>
+    
+    <br>
+
+    <div>
+        Time: 
+        <input type="number" name="score" placeholder="Time (seconds)" min="0" step="1" required> seconds
+    </div>
+    
+    <br>
+
+    <input type="submit" value="Submit" style="cursor: pointer;">
+</form>
+
+</div>
+
+<h1 class="leaderboard-title-heading">Leaderboard</h1>
+<div class="leaderboard-glowing-section">
+    <form method="GET" action="/leaderboard" style="margin-bottom: 20px; text-align: left;">
         <label for="sort_by">Sort by: </label>
         <select name="sort_by" id="sort_by" onchange="this.form.submit()" style="padding: 5px; font-size: 16px; cursor: pointer;">
             <option value="quickest" {% if current_sort == 'quickest' %}selected{% endif %}>Quickest to Slowest</option>
@@ -44,10 +84,12 @@
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+</table>
 
-    </main>
-    <footer class="site-footer">
+</main>
+</div>
+</div>
+<footer class="site-footer">
         <section class="columns">
             <div>
                 <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to top ⬆</button>
@@ -62,12 +104,12 @@
         </section>
         <br><br>
         <nav class="footer-links" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="games.html">Games</a>
-            <a href="Checkout.html">Checkout</a>
-            <a href="Albarr-Main.html">QFAP</a>
-            <a href="Muhammad-Main.html">CyberMatch</a>
-            <a href="Aarav-Main.html">Data Deal</a>
+            <a style="cursor: pointer;">Home</a>
+            <a style="cursor: pointer;">Games</a>
+            <a style="cursor: pointer;">Checkout</a>
+            <a style="cursor: pointer;">QFAP</a>
+            <a href="/cybermatch">CyberMatch</a>
+            <a style="cursor: pointer;">Data Deal</a>
         </nav>
         <br>
         <hr color="#ff00c4">

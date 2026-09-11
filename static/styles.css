@@ -1,40 +1,226 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Share+Tech&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    overflow-x: hidden;
-    color: #121212;
+
+
+select#sort_by {
+    background-color: rgba(44, 44, 44, 0.9);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 2px solid rgb(22, 179, 22);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    margin-left: 10px;
+}
+
+select#sort_by:focus, select#sort_by:hover {
+    box-shadow: 0 0 15px rgba(22, 179, 22, 0.8);
+    background-color: rgb(46, 45, 45);
+}
+
+label[for="sort_by"] {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #10f26a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif !important;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: sans-serif;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid black; 
+    max-width: 90%;
+    margin: 30px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: rgba(44, 44, 44, 0.9);
+    border: 2px solid rgb(22, 179, 22);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+    font-family: 'JetBrains Mono', sans-serif;
 }
 
 th {
-    background-color: #222;
-    color: white;
+    background-color: #000000;
+    color: #10f26a;
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 22px;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 2px solid rgb(22, 179, 22);
 }
 
-tr:hover {
-    background-color: #f5f5f5; 
+td {
+    padding: 14px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(22, 179, 22, 0.2);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-main {
-    flex: 1;
+tr:last-child td {
+    border-bottom: none;
 }
 
+tr:hover td {
+    background-color: rgba(130, 127, 127, 0.5);
+}
 
+tr:nth-child(1):hover td {
+    color: #ffd700;
+}
+
+tr:nth-child(2):hover td {
+    color: #aca6a6;
+}
+
+tr:nth-child(3):hover td {
+    color: #cd7f32;
+}
+
+tr:nth-child(n+4):hover td {
+    color: #10f26a;
+}
+
+form input[type="text"], form input[type="number"] {
+    background-color: #121212;
+    color: #fff;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+form input[type="text"]:focus, form input[type="number"]:focus {
+    border-color: rgb(22, 179, 22);
+    outline: none;
+}
+
+body.leaderboard-page-body {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+.leaderboard-main-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+    padding: 5px 5%;
+    background-color: rgba(44, 44, 44, 0.9);
+    border: solid 2px #10f26a;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+    transition: all 0.4s ease;
+}
+
+.leaderboard-main-wrapper:hover {
+    box-shadow: 0 5px 60px rgba(0, 0, 0, 0.9);
+    background-color: rgb(46, 45, 45);
+}
+
+.leaderboard-title-heading {
+    color: #10f26a;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+}
+
+.leaderboard-glowing-section {
+    background-color: rgb(30, 30, 30);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #10f26a;
+    box-shadow: 0 0 20px #10f26a;
+    margin-bottom: 20px;
+}
+
+.leaderboard-glowing-section form {
+    color: #f0f0f0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.leaderboard-display-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.leaderboard-display-table th {
+    font-family: 'JetBrains Mono', sans-serif;
+    color: #10f26a;
+    border-bottom: 2px solid #10f26a;
+    padding: 10px;
+    text-align: left;
+}
+
+.leaderboard-display-table td {
+    font-family: 'JetBrains Mono', sans-serif;
+    padding: 10px;
+    border-bottom: 1px solid rgba(16, 242, 106, 0.2);
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.leaderboard-display-table tr:hover td {
+    color: #10f26a;
+}
+
+body.leaderboard-page-body,
+body.leaderboard-page-body input,
+body.leaderboard-page-body select,
+body.leaderboard-page-body label {
+    font-family: 'JetBrains Mono', sans-serif !important;
+}
+
+body.leaderboard-page-body input::placeholder {
+    font-family: 'JetBrains Mono', sans-serif !important;
+}
+
+body.leaderboard-page-body form[method="GET"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto !important;
+}
+
+body.leaderboard-page-body input[type="submit"] {
+    background-color: rgb(22, 179, 22);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'JetBrains Mono', sans-serif;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+body.leaderboard-page-body input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: #2a4b30;
+    color: #fff;
+}
+
+body.leaderboard-page-body form[method="POST"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
 
 .site-footer {
     background-color: rgb(68, 61, 67);
@@ -153,7 +339,7 @@ main {
 }
 
 
-/* ----------------------CSS for CyberMatch page--------------------------- */
+/* ----------------------CSS from (Original) CyberMatch page--------------------------- */
 
 * {
     box-sizing: border-box;
@@ -619,5 +805,66 @@ ul {
         width: 40px;
         height: 40px;
         font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .muh-page .content {
+        width: 95% !important;
+        margin-left: 2.5% !important;
+        padding: 15px 15px !important;
+    }
+
+    .muh-page .section {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 15px 10px !important;
+    }
+
+    .muh-page h1.subheading {
+        font-size: 24px !important;
+        margin-top: 25px !important;
+    }
+
+    .muh-page .gameplayscreen {
+        width: 100% !important;
+    }
+
+    .site-footer {
+        padding: 30px 10px !important;
+    }
+
+    .site-footer .columns {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .leaderboard-main-wrapper {
+        width: 95% !important;
+        margin-left: 2.5% !important;
+        padding: 15px 10px !important;
+    }
+
+    body.leaderboard-page-body form[method="POST"] {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    body.leaderboard-page-body form[method="POST"] input {
+        width: 100% !important;
+        margin: 5px 0 !important;
+        box-sizing: border-box;
+    }
+    
+    body.leaderboard-page-body table {
+        max-width: 100% !important;
+        font-size: 14px;
     }
 }
