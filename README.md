@@ -52,9 +52,3 @@ app.run(debug=True, port=5050)
 ```
 - If you don’t see CSS, make sure the folder is named `static` and the file is `static/styles.css`.
 - If VS Code prompts to **install Python** or **select interpreter**, pick the one from `.venv`.
-
-## 8) Next steps for students
-- Enforce top 10 scores only: change the SELECT query to order by score DESC and limit results.
-- Add validation: prevent empty names or negative scores.
-- Add REST endpoints: e.g., `/api/scores` to GET/POST JSON.
-- Sort by highest score and show ranks.
