@@ -74,17 +74,6 @@ def leaderboard():
     
     return render_template('index.html', entries=entries, current_sort=sort_by)
 
-    
-    # If it's a normal page load (GET request), show the leaderboard
-    with sqlite3.connect(DB_NAME) as conn:
-        cur = conn.cursor()
-        # Get all name and score entries from the database (sorted by score in descending order)
-        cur.execute('SELECT name, score FROM scores ORDER BY score ASC')
-        entries = cur.fetchall()
-    
-    # Send the HTML page with the most recent leaderboard
-    return render_template('index.html', entries=ranked_entries)
-
 # Allow the main game page to be access to and from the leaderboard page
 @app.route('/cybermatch', methods=['GET', 'POST'])
 def index ():

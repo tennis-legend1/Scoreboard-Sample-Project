@@ -1,4 +1,4 @@
-# Scoreboard Sample Project — Quick Start
+# Scoreboard Project
 
 ## 1) Open in VS Code
 - Extract this folder somewhere simple like `C:\Dev\scoreboard` or `~/Dev/scoreboard`.

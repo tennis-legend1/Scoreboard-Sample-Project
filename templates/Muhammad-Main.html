@@ -5,7 +5,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberMatch</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
@@ -23,19 +22,30 @@
             <h1>CyberMatch</h1>
         </span>
         <nav id="contents" class="center-item" aria-label="Group project navigation">
-            <a class="animated-hyperlink hyperlink muhammad" href="Albarr-Main.html">QFAP</a>
-            <a class="hyperlink muhammad" style="background-color: darkgreen;" href="Muhammad-Main.html"><i style="color: gray;">CM</i></a>
-            <a class="animated-hyperlink hyperlink muhammad" href="Aarav-Main.html">DD</a>
+            <a class="animated-hyperlink hyperlink muhammad" style="cursor: pointer;">QFAP</a>
+            <a class="hyperlink muhammad" style="background-color: darkgreen;" href="/cybermatch" style="cursor: pointer;"><i style="color: gray;">CM</i></a>
+            <a class="animated-hyperlink hyperlink muhammad" style="cursor: pointer;">DD</a>
         </nav>
         <span class="right-item">
             <h1>Back to Home</h1>
-            <a href="index.html">
+            <a style="cursor: pointer;">
                 <img class="logo" id="logo-redirect" src="{{ url_for('static', filename='no.png') }}">
             </a>
         </span>
     </header>
 <br>
     <div class="content">
+       
+        <h1 class="subheading">Want To Enter Your High Score?</h1>
+
+        <div class="section">
+
+            <p>
+                Click <a href="/leaderboard">here</a> to see the leaderboard and enter your own scores!
+            </p>
+
+        </div>
+
         <h1 class="subheading">About The Game</h1>
 
         <div class="section">
@@ -132,8 +142,7 @@
             <br>
             <p style="font-size: 28px; color: #ff66c4"><b>Only $110.00 for 3 games!</b></p>
             <br>
-            <button class="btn bundle-button" onclick='window.location.href = "Checkout.html"'><b>Buy the <i>Cyber Bundle</i>
-                    Now!</b></button>
+            <button class="btn bundle-button" style="cursor: pointer"><b>Buy the <i>Cyber Bundle</i> Now!</b></button>
         </div>
         <br>
     </div>
@@ -152,12 +161,12 @@
         </section>
         <br><br>
         <nav class="footer-links" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="games.html">Games</a>
-            <a href="Checkout.html">Checkout</a>
-            <a href="Albarr-Main.html">QFAP</a>
-            <a href="Muhammad-Main.html">CyberMatch</a>
-            <a href="Aarav-Main.html">Data Deal</a>
+            <a style="cursor: pointer">Home</a>
+            <a style="cursor: pointer">Games</a>
+            <a style="cursor: pointer">Checkout</a>
+            <a style="cursor: pointer">QFAP</a>
+            <a href="/cybermatch">CyberMatch</a>
+            <a style="cursor: pointer">Data Deal</a>
         </nav>
         <br>
         <hr color="#ff00c4">
