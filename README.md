@@ -1,54 +1,36 @@
-# Scoreboard Project
+# CyberMatch Website & Leaderboard
 
-## 1) Open in VS Code
-- Extract this folder somewhere simple like `C:\Dev\scoreboard` or `~/Dev/scoreboard`.
-- In VS Code: **File → Open Folder…** and select `Scoreboard Sample Project`.
+A CyberMatch website and leaderboard system built with HTML, CSS, Python and Flask. It allows users to submit their name and completion time, then view the results on a dedicated leaderboard page.
 
-## 2) Create & activate a virtual environment
-**Windows (PowerShell):**
-```
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-**macOS/Linux (bash/zsh):**
-```
-python3 -m venv .venv
-source .venv/bin/activate
-```
+## Live Demo
 
-If activation is blocked on Windows, run this once in an **Administrator** PowerShell:
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
+Main Site:
+https://tennislegend.pythonanywhere.com/cybermatch
 
-## 3) Install dependencies
-```
-pip install -r requirements.txt
-```
+Leaderboard:
+https://tennislegend.pythonanywhere.com/leaderboard
 
-## 4) Run the app
-- Option A (Terminal):
-```
-python app.py
-```
-- Option B (VS Code Debug):
-    - Press **F5** or choose **Run and Debug → Python: Flask (app.py)**
+## Features
+- Submit names and completion times
+- Multiple leaderboard sorting options
+- Dark theme with green accents
+- Rank-based hover effects
+- Responsive design for phones and laptops
+- Links between the CyberMatch page and leaderboard page
+- Input validation for cleaner data
 
-Then open http://127.0.0.1:5000/ in your browser.
+## About
 
-## 5) Reset the database (optional)
-Delete `scores.db` to start fresh. It will be recreated on next run.
+This project combines the main CyberMatch website with a dedicated leaderboard system. Users can add their details, view rankings and sort entries in different ways.
 
-## 6) Test adding a score
-Use the form on the page, or from a terminal:
-```
-curl -X POST -d "name=Alice&score=123" http://127.0.0.1:5000/
-```
+The project helped me build on my Python and Flask skills, particularly when working with forms, validation and sorting data. A major focus was keeping the design and functionality consistent across both pages so that the leaderboard felt like a natural extension of the website rather than a completely separate page.
 
-## 7) Common gotchas
-- If port 5000 is busy, change to a free port by editing the bottom of `app.py`:
-```python
-app.run(debug=True, port=5050)
-```
-- If you don’t see CSS, make sure the folder is named `static` and the file is `static/styles.css`.
-- If VS Code prompts to **install Python** or **select interpreter**, pick the one from `.venv`.
+The dark theme, hover effects and highlighted rankings help the leaderboard stand out while still fitting in with the rest of the site.
+
+## Testing
+
+Try adding a few entries with different names and times, then test the sorting options to make sure everything updates correctly. The sitea has also been adjusted to work on both desktop and mobile devices.
+
+## Notes
+
+You may notice a few buttons on the CyberMatch page that don't currently lead anywhere. These were originally linked to other pages from a separate project. Since the main focus of this version is the CyberMatch page and leaderboard system, those additional pages were removed while the core functionality was kept in place.
