@@ -33,4 +33,9 @@ Try adding a few entries with different names and times, then test the sorting o
 
 ## Notes
 
-You may notice a few buttons on the CyberMatch page that don't currently lead anywhere. These were originally linked to other pages from a separate project. Since the main focus of this version is the CyberMatch page and leaderboard system, those additional pages were removed while the core functionality was kept in place.
+You may notice a few buttons on the CyberMatch page that don't currently lead anywhere. These were originally linked to other pages from a separate project. Since the main focus of this version is the CyberMatch page and leaderboard system, those additional pages were removed while the core functionality was kept in place.\
+
+## Sources
+
+Cat Image (mascot.png): 
+https://www.google.com/imgres?q=pink%20cat%20laying&imgurl=https%3A%2F%2Fih1.redbubble.net%2Fimage.2422812138.3788%2Fraf%2C360x360%2C075%2Ct%2Cfafafa%3Aca443f4786.jpg&imgrefurl=https%3A%2F%2Fwww.redbubble.com%2Fi%2Fposter%2FPink-Cat-Laying-Down-by-itsbellabell%2F79843788%2Fflk2&docid=aM2dtNeikXWyrM&tbnid=FDpsxWfZjMSS4M&vet=12ahUKEwjohtS-3biXAxXccfUHHaHoKocQnPAOegUI4QUQAA..i&w=360&h=360&hcb=2&itg=1&ved=2ahUKEwjohtS-3biXAxXccfUHHaHoKocQnPAOegUI4QUQAA
